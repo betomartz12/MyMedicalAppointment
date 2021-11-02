@@ -53,4 +53,9 @@ public class Patient extends User {
                 ", Height: " + getHeight() +
                 ", BloodType: " + bloodType;
     }
+
+    @Override
+    public void showDataUser() {
+        System.out.println("EPS: Sanitas");
+    }
 }

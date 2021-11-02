@@ -1,5 +1,6 @@
 import model.Doctor;
 import model.Patient;
+import model.User;
 
 import java.util.Date;
 
@@ -9,6 +10,24 @@ public class Main {
         Doctor myDoctor = new Doctor("Alberto Martínez","bm.12@hotmail.com");
         myDoctor.addAvailableAppointment(new Date(),"4pm");
 
+        //Instanciando User desde clases hijas
+        User userD = new Doctor("Martz","martz@martz.com");
+        userD.showDataUser();
+
+        User userP = new Patient("Martz","martz@martz.com");
+        userP.showDataUser();
+
+        //Instanciando anonimamente
+
+        User user1 = new User("Beto","beto@beto.com") {
+            @Override
+            public void showDataUser() {
+                System.out.println("Doctor externo");
+            }
+        };
+
+        user1.showDataUser();
+        
         //System.out.println(myDoctor.getAvailableAppointments());
 
         /*for (model.Doctor.AvailableAppointment availableAppointment: myDoctor.getAvailableAppointments()) {
