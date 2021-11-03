@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Doctor myDoctor = new Doctor("Alberto Martínez","bm.12@hotmail.com");
-        myDoctor.addAvailableAppointment(new Date(),"4pm");
+        //myDoctor.addAvailableAppointment(new Date(),"4pm");
 
         //Instanciando User desde clases hijas
         User userD = new Doctor("Martz","martz@martz.com");
