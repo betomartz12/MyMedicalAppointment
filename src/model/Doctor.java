@@ -72,6 +72,11 @@ public class Doctor extends User{
             return date;
         }
 
+        public String getDate(String DATE) {
+
+            return format.format(date);
+        }
+
         public void setDate(Date date) {
 
             this.date = date;
