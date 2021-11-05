@@ -11,7 +11,6 @@ public class Doctor extends User{
 
     public Doctor(String name, String email){
         super(name, email);
-        this.speciality = speciality;
     }
 
     public String getSpeciality() {

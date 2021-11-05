@@ -13,8 +13,8 @@ public class UIDoctorMenu {
         int response = 0;
         do {
             System.out.println("\n\n");
-            System.out.println("Doctor");
-            System.out.println("Welcome"+UIMenu.doctorLogged.getName());
+            System.out.println(":: Doctor ::");
+            System.out.println("Welcome "+UIMenu.doctorLogged.getName());
             System.out.println("1. Add Available Appointment");
             System.out.println("2. My Scheduled appointments");
             System.out.println("0. Logout");
@@ -24,6 +24,7 @@ public class UIDoctorMenu {
 
             switch (response){
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
@@ -54,7 +55,7 @@ public class UIDoctorMenu {
 
             if (response>0 && response < 13){
                 int monthSelected = response;
-                System.out.println("The month selected is: " + UIMenu.MONTHS[monthSelected]);
+                System.out.println("The month selected is: " + UIMenu.MONTHS[monthSelected-1]);
                 System.out.println("Insert the date vailable: [dd/mm/yyyy]");
                 String date = sc.nextLine();
                 System.out.println("The date selected is: " + date + "\n1. Correct \n2. Incorrect");
@@ -63,7 +64,7 @@ public class UIDoctorMenu {
                 int responseTime = 0;
                 String time = "";
                 do {
-                    System.out.println("Insert the time available for date: " + date + "[16:00]");
+                    System.out.println("Insert the time available for date: " + date + " [16:00]");
                     time = sc.nextLine();
                     System.out.println("The time selected is: " + time + "\n1. Correct \n2. Incorrect");
                     responseTime = Integer.valueOf((sc.nextLine()));
