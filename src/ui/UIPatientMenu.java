@@ -27,9 +27,12 @@ public class UIPatientMenu {
             switch (response){
                 case 1:
                     System.out.println(":: Book an appointment ::");
+                    showBookAppointmentMenu();
+                    /*
                     for (int i = 1; i < 13; i++) {
                         System.out.println(i + ". " + UIMenu.MONTHS[i-1]);
                     }
+                    */
                     break;
                 case 2:
                     System.out.println(":: My appointments ::");
@@ -63,6 +66,49 @@ public class UIPatientMenu {
             }
             Scanner sc = new Scanner(System.in);
             int responseDateSelected = Integer.valueOf(sc.nextLine());
+            Map<Integer,Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
+            Integer indexDate = 0;
+            Doctor doctorSelected = new Doctor("","");
+
+            for (Map.Entry<Integer,Doctor> doc : doctorAvailableSelected.entrySet()) {
+                indexDate = doc.getKey();
+                doctorSelected = doc.getValue();
+
+
+            }
+
+            System.out.println(doctorSelected.getName() +
+                    ". Date: " + doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
+                    ". Time: " + doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+            System.out.println("Confirm your appointment: \n1. Yes \n2. Change Data");
+            response = Integer.valueOf(sc.nextLine());
+
+            if (response == 1){
+                UIMenu.patientLogged.addAppointmentDoctors(doctorSelected,
+                        doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
+                        doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+                showPatientMenu();
+            }
+        }while (response != 0);
+    }
+
+    private static void showPatientMyAppointments(){
+        int response = 0;
+        do {
+            System.out.println(":: My Appointments ::");
+            if (UIMenu.patientLogged.getAppointmentDoctors().size() == 0){
+                System.out.println("No appointments scheduled");
+                break;
+            }
+            for (int i = 0; i < UIMenu.patientLogged.getAppointmentDoctors().size(); i++) {
+                int j = i + 1;
+                System.out.println(j +
+                        ". Date: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
+                        ". Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
+                        "\n Doctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor());
+
+            }
+            System.out.println("0. Return");
         }while (response != 0);
     }
 }
