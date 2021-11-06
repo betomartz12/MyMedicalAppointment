@@ -26,16 +26,10 @@ public class UIPatientMenu {
 
             switch (response){
                 case 1:
-                    System.out.println(":: Book an appointment ::");
                     showBookAppointmentMenu();
-                    /*
-                    for (int i = 1; i < 13; i++) {
-                        System.out.println(i + ". " + UIMenu.MONTHS[i-1]);
-                    }
-                    */
                     break;
                 case 2:
-                    System.out.println(":: My appointments ::");
+                    showPatientMyAppointments();
                     break;
                 case 0:
                     showMenu();
@@ -105,7 +99,7 @@ public class UIPatientMenu {
                 System.out.println(j +
                         ". Date: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
                         ". Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
-                        "\n Doctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor());
+                        "\n Doctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
 
             }
             System.out.println("0. Return");
