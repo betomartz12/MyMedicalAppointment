@@ -24,6 +24,7 @@ public class Doctor extends User{
     }
 
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+
     public void addAvailableAppointment(String date, String time){
         availableAppointments.add(new Doctor.AvailableAppointment(date,time));
     }
@@ -34,8 +35,7 @@ public class Doctor extends User{
 
     @Override
     public String toString() {
-        return super.toString() + "\nSpeciality: " + speciality +
-                "\nAvailable: " + availableAppointments.toString();
+        return super.toString() + "\nAvailable: " + availableAppointments.toString();
     }
 
     @Override
@@ -93,8 +93,7 @@ public class Doctor extends User{
 
         @Override
         public String toString() {
-            return "Available Appointments \nDate: " + date +
-                    "\nTime: " + time;
+            return "Date: " + date + ", Time: " + time;
         }
     }
 }

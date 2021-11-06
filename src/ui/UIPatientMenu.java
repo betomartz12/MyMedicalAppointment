@@ -100,7 +100,6 @@ public class UIPatientMenu {
                         ". Date: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
                         ". Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
                         "\n Doctor: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
-
             }
             System.out.println("0. Return");
         }while (response != 0);

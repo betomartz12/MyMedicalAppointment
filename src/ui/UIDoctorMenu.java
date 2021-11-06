@@ -14,7 +14,7 @@ public class UIDoctorMenu {
         do {
             System.out.println("\n\n");
             System.out.println(":: Doctor ::");
-            System.out.println("Welcome "+UIMenu.doctorLogged.getName());
+            System.out.println("Welcome "+ UIMenu.doctorLogged.getName());
             System.out.println("1. Add Available Appointment");
             System.out.println("2. My Scheduled appointments");
             System.out.println("0. Logout");
@@ -27,6 +27,7 @@ public class UIDoctorMenu {
                     showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
+                    showMyScheduledAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
@@ -82,6 +83,16 @@ public class UIDoctorMenu {
     private static void checkDoctorAvailableAppointments(Doctor doctor){
         if (doctor.getAvailableAppointments().size() > 0 && !doctorsAvailableAppointments.contains(doctor)){
             doctorsAvailableAppointments.add(doctor);
+        }
+    }
+
+    private static void showMyScheduledAppointments(){
+        System.out.println(":: My available appointments ::");
+        if (doctorsAvailableAppointments.size() == 0){
+            System.out.println("No appointments scheduled");
+        }
+        for (int i = 0; i < doctorsAvailableAppointments.size(); i++) {
+            System.out.println(doctorsAvailableAppointments.get(i).toString());
         }
     }
 
